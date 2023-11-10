@@ -1,0 +1,11 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: hellospace
+spec:
+  steps:
+    - name: space
+      image: ubuntu
+      script: |
+        #!/bin/sh
+        echo "Hello Space"  

@@ -1,0 +1,20 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: hello-goodbye-space
+spec:
+  params:
+  - name: username
+    type: string
+  tasks:
+    - name: hellospace
+      taskRef:
+        name: hellospace
+    - name: goodbyespace
+      runAfter:
+        - hellospace
+      taskRef:
+        name: goodbyespace
+      params:
+      - name: username
+        value: $(params.username)

@@ -1,0 +1,14 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: goodbyespace
+spec:
+  params:
+  - name: username
+    type: string
+  steps:
+    - name: goodbyespace
+      image: ubuntu
+      script: |
+        #!/bin/bash
+        echo "Goodbye $(params.username)! From space this time!"   
